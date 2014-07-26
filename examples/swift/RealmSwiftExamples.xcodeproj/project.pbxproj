@@ -1045,6 +1045,7 @@
 				E889C4DF1975E940003DE97D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E8C261F81975743900A1E3D6 /* Build configuration list for PBXNativeTarget "RealmSwiftMigrationExample" */ = {
 			isa = XCConfigurationList;

@@ -54,9 +54,9 @@ class TableViewController: UITableViewController {
     func setupUI() {
         tableView.registerClass(Cell.self, forCellReuseIdentifier: "cell")
         
-        self.title = "SwiftExample"
+        self.title = "Test Swift"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "BG Add", style: .Plain, target: self, action: "backgroundAdd")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "add")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addOne")
     }
 
     // Table view data source
@@ -113,7 +113,18 @@ class TableViewController: UITableViewController {
         realm.commitWriteTransaction()
     }
     
+    func addOne() {
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        DemoObject.createInRealm(realm, withObject: [TableViewController.oneString(), TableViewController.randomDate()])
+        realm.commitWriteTransaction()
+    }
+    
     // Helpers
+    
+    class func oneString() -> String {
+        return "This is a test"
+    }
     
     class func randomString() -> String {
         return "Title \(arc4random())"
